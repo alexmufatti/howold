@@ -4,11 +4,12 @@ import {DateTime} from "luxon";
 
 interface HowOldProps {
     name: string;
+    emoji: string;
     initial: string;
     birthdate: DateTime;
 }
 
-const HowOld : React.FC<HowOldProps> = ({name, initial, birthdate}: HowOldProps) => {
+const HowOld : React.FC<HowOldProps> = ({name, initial, birthdate, emoji}: HowOldProps) => {
 
     const now = DateTime.now();
     const diff = now.diff(birthdate, ["years", "months", "days","hours", "minutes"]).toObject();
@@ -24,7 +25,7 @@ const HowOld : React.FC<HowOldProps> = ({name, initial, birthdate}: HowOldProps)
         <div className={`how-old ${name.toLowerCase()}`}>
             <h1 className="initial">{initial}</h1>
 
-            <p>{name} ha </p>
+            <p><span className={'emoji'}>{emoji}</span><br/>{name} ha </p>
             <p>{diff.years}&nbsp;anni {diff.months}&nbsp;mesi {diff.days}&nbsp;giorni {diff.hours}&nbsp;ore {Math.floor(diff.minutes ?? 0)}&nbsp;minuti</p>
 
             <p>il prossimo compleanno sarà tra <br />
