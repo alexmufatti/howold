@@ -13,13 +13,23 @@ const HowOld : React.FC<HowOldProps> = ({name, initial, birthdate}: HowOldProps)
     const now = DateTime.now();
     const diff = now.diff(birthdate, ["years", "months", "days","hours", "minutes"]).toObject();
 
+    let nextBirthday = birthdate.set({ year: now.year });
+    if (nextBirthday < now) {
+        nextBirthday = nextBirthday.plus({ years: 1 });
+    }
+
+    const diffBirthDay = nextBirthday.diff(now, ["months", "days"]).toObject();
+
     return (
         <div className={`how-old ${name.toLowerCase()}`}>
             <h1 className="initial">{initial}</h1>
 
-            <p>{name} is </p>
-            <p>{diff.years}&nbsp;years {diff.months}&nbsp;months {diff.days}&nbsp;days {diff.hours}&nbsp;hours {Math.floor(diff.minutes ?? 0)}&nbsp;minutes
+            <p>{name} ha </p>
+            <p>{diff.years}&nbsp;anni {diff.months}&nbsp;mesi {diff.days}&nbsp;giorni {diff.hours}&nbsp;ore {Math.floor(diff.minutes ?? 0)}&nbsp;minuti
                 old</p>
+
+            <p>il prossimo compleanno sarà tra </p>
+            <p>{diffBirthDay.months}&nbsp;mesi {Math.floor(diffBirthDay.days ?? 0)}&nbsp;giorni</p>
         </div>
     )
 }
