@@ -1,0 +1,35 @@
+.how-old {
+    flex: 1;
+    min-width: 300px;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid #000;
+}
+
+.fiammi {
+   background-color: #1092e7;
+    color: white;
+}
+
+.alice {
+    background-color: #DEA3A0;
+}
+
+
+.initial
+{
+    font-family: 'Marck Script', cursive;
+    margin: 30px auto 60px;
+    border: 2px solid white;
+    width: 144px;
+    height: 144px;
+    font-size: 108px;
+    line-height: 140px;
+    display: block;
+    font-weight: 100;
+    color: #fff;
+    text-align: center;
+    cursor: default;
+    border-radius: 15%;
+
+}
