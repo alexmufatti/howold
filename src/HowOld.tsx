@@ -25,11 +25,10 @@ const HowOld : React.FC<HowOldProps> = ({name, initial, birthdate}: HowOldProps)
             <h1 className="initial">{initial}</h1>
 
             <p>{name} ha </p>
-            <p>{diff.years}&nbsp;anni {diff.months}&nbsp;mesi {diff.days}&nbsp;giorni {diff.hours}&nbsp;ore {Math.floor(diff.minutes ?? 0)}&nbsp;minuti
-                old</p>
+            <p>{diff.years}&nbsp;anni {diff.months}&nbsp;mesi {diff.days}&nbsp;giorni {diff.hours}&nbsp;ore {Math.floor(diff.minutes ?? 0)}&nbsp;minuti</p>
 
-            <p>il prossimo compleanno sarà tra </p>
-            <p>{diffBirthDay.months}&nbsp;mesi {Math.floor(diffBirthDay.days ?? 0)}&nbsp;giorni</p>
+            <p>il prossimo compleanno sarà tra <br />
+            {diffBirthDay.months}&nbsp;mesi {Math.floor(diffBirthDay.days ?? 0)}&nbsp;giorni</p>
         </div>
     )
 }
